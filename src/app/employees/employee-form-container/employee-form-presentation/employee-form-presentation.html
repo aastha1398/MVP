@@ -1,0 +1,78 @@
+<p>employee-form-presentation works!</p>
+<H1 align="center">Register</H1>
+<form [formGroup]="profileForm" (ngSubmit)="OnSubmit()" align="center">
+     <label> 
+        Employee Name:
+     </label>&nbsp;&nbsp;
+     <input  matInput  type="text"  formControlName="empName" [ngClass]="{ 'is-invalid': submitted && f.empName.errors }" required>
+       <div *ngIf="submitted && f.empName.errors" class="invalid-feedback">
+            <div *ngIf="f.empName.errors.required">First Name is required</div>
+       </div>
+       <br>
+       <br>
+    
+    <label>
+      Employee Email:
+    </label>&nbsp;&nbsp;
+    <input matInput type="email" formControlName="empEmail" [ngClass]="{ 'is-invalid': submitted && f.empEmail.errors }" required>
+    <div *ngIf="submitted && f.empEmail.errors" class="invalid-feedback">
+      <div *ngIf="f.empEmail.errors.required">Email is required</div>
+      <div *ngIf="f.empEmail.errors.email">Email must be a valid email address</div>
+  </div>
+  <br>
+  <br>
+  <label>
+      Contact Number:
+  </label>&nbsp;&nbsp;
+  <input matInput  type="text" formControlName="empContact" [ngClass]="{'is-invalid': submitted && f.empContact.errors}" required>
+  <div *ngIf="submitted && f.empContact.errors" class="invalid-feedback">
+        <div *ngIf="f.empContact.errors.required">Contact Number  is required</div>
+    </div>
+<br>
+<br>
+    <label>
+           Department: 
+    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input  matInput type="text" formControlName="empDepartment" [ngClass]="{'is-invalid': submitted && f.empDepartment.errors}" required>
+    <div *ngIf="submitted && f.empDepartment.errors" class="invalid-feedback">
+        <div *ngIf="f.empDepartment.errors.required">Department  is required</div>
+    </div>
+    &nbsp;&nbsp;
+    <br>
+    <br>
+    <input type="radio" formControlName="gender" value="Male" name="gender">Male
+    <input type="radio" formControlName="gender" value="Female" name="gender">Female
+    <input type="radio" formControlName="gender" value="Other"  name="gender">Other
+<br>
+<br>
+
+    <label>
+        Hire Date:
+    </label>&nbsp;&nbsp;
+    <input type="week" formControlName="hireDate" value="date">
+    <br>
+    <br>
+
+    <label>
+        City
+    </label>&nbsp;&nbsp;
+    <input type="text" formControlName="empCity">
+    <br>
+    <br>
+
+    <label>
+        Permanent Employee:
+    </label>&nbsp;&nbsp;
+    <input type="checkbox" formControlName="perEmp" checked>
+    <br>
+    <br>
+<button type="submit" [disabled]="profileForm.invalid">Submit</button>&nbsp;
+<button type="reset" >Clear</button>
+</form>
+<p>
+   Form Status: {{ profileForm.status }}
+</p>
+      
+
+
+    
