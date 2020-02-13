@@ -1,0 +1,49 @@
+<H1 align="center">Register</H1>
+<form [formGroup]="profileForm" (ngSubmit)="OnSubmit()" align="center">
+     
+    <label> 
+    Employee Name:
+    </label>&nbsp;&nbsp;
+     <input  type="text"  formControlName="employeeName">
+    <br><br>
+    
+    <label>
+      Employee Email:
+    </label>&nbsp;&nbsp;
+    <input  type="email" formControlName="employeeEmail">
+    <br>
+    <br>
+
+
+    <label>
+      Contact Number:
+    </label>&nbsp;&nbsp;
+     <input  type="text" formControlName="employeeContact" >
+    <br>
+    <br>
+
+    <label>
+           Department: 
+    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" formControlName="employeeDepartment" >
+     &nbsp;&nbsp;
+    <br>
+    <br>
+
+   <label>
+    City
+    </label>&nbsp;&nbsp;
+    <input type="text" formControlName="employeeCity">
+    <br>
+    <br>
+   
+    <button type="submit">Submit</button>&nbsp;
+    <button type="reset" >Clear</button>
+</form>
+<p>
+   Form Status: {{ profileForm.status }}
+</p>
+      
+
+
+    

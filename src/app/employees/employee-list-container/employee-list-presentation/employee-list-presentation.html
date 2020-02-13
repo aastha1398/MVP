@@ -1,0 +1,37 @@
+<style>
+        table,
+        th,
+        td,
+        tr {
+            border: 0px;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 20px;
+            width: 50%;
+    
+        }
+    </style>
+    <br>
+    <table align="center" width="100%" >
+       
+        <tr>
+            <th>EmployeeName</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Department</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+    
+        <tr *ngFor="let employee of employeeData$ | async">
+            <td>{{employee.employeeName}}</td>
+            <td>{{employee.employeeContact}}</td>
+            <td>{{employee.employeeEmail}}</td>
+            <td>{{employee.employeeCity}}</td>
+            <td>{{employee.employeeDepartment}}</td>
+            <td><button (click)="Delete(employee.id)">Delete</button></td>
+            <td><button (click)="Edit(employee.id)">Edit</button></td>
+        </tr>
+    </table>
+    <br><br>
