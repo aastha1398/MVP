@@ -31,7 +31,7 @@
             <td>{{employee.employeeCity}}</td>
             <td>{{employee.employeeDepartment}}</td>
             <td><button (click)="Delete(employee.id)">Delete</button></td>
-            <td><button (click)="Edit(employee.id)">Edit</button></td>
+            <td><button routerLink="/edit/{{employee.id}}">Edit</button></td>
         </tr>
     </table>
     <br><br>

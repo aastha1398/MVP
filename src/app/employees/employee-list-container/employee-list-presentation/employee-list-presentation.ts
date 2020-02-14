@@ -15,29 +15,29 @@ export class EmployeeListPresentation implements OnInit {
   constructor() { }
 
   @Input() employeeData$:Observable<Employee[]>;
-  @Output() deleteEvent = new EventEmitter<number>();
-  //@Output() editEvent = new EventEmitter<number>();
+  @Output() deleteEvent = new EventEmitter<number>(); //Output event for delete function
+  @Output() editEvent = new EventEmitter<number>();   //Output event for edit function
 
-
-  Delete(id:number)
-  {
-    this.deleteEvent.emit(id);
-  }
+  ngOnInit(){}
 
 
   /**
    * 
    * @param id 
-   * Edit(id: number)
+   */
+  delete(id:number)
+  {
+    this.deleteEvent.emit(id);
+  }
+
+  /**
+   * 
+   * @param id 
+   */
+    edit(id: number)
   {
     this.editEvent.emit(id);
   }
-   * 
-   * 
-   */
 
-  ngOnInit()
-   {
-   }
 
 }

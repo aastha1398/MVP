@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmployeeListPresentation } from './employee-list-container/employee-list-presentation/employee-list-presentation';
+
 import { EmployeeListContainer } from './employee-list-container/employee-list-container';
 import { EmployeeFormContainer } from './employee-form-container/employee-form-container';
 
@@ -11,7 +12,7 @@ const routes: Routes = [
     component: EmployeeListContainer
   },
   {
-    path:'employee-form-container/:id',
+    path:'edit/:id',
     component: EmployeeFormContainer
   },
   {

@@ -10,13 +10,13 @@ import { Employee } from '../employees.model';
 })
 export class EmployeeListContainer implements OnInit {
 
-  constructor(private employee:EmployeeService) { }
+  empData$ : Observable<Employee[]>;  
 
-  empData$ : Observable<Employee[]>
+  constructor(private employee:EmployeeService) { }  
 
   ngOnInit()
   {
-    this.empData$ = this.employee.getEmployees();
+     this.empData$ = this.employee.getEmployees();
   }
 
   onDelete(id: number)
@@ -25,16 +25,10 @@ export class EmployeeListContainer implements OnInit {
     this.empData$ = this.employee.getEmployees();
   }
 
-  /**
-   * 
-   * @param id 
-   * 
-   *  onEdit(id: number)
-    {
-    this.employee.getId(id);
-   }
-   * 
-   * 
-   */
+  onEdit(id: number)
+  {
+      this.employee.getEmployeeById(id);
+  }
+   
  
 }

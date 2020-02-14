@@ -15,35 +15,36 @@ import { EmployeeFormPresenterService } from './employee-form-presenter';
 export class EmployeeFormContainer implements OnInit {
 
   id: number;
-  employee$: Observable<Employee[]>
-  
-  constructor(private routes: ActivatedRoute,private employeeService: EmployeeService) { }
-
+  employee$: Observable<Employee>
+ 
+  constructor(private routes: ActivatedRoute,private employeeService: EmployeeService) {}
+ 
   ngOnInit()
   {
-       /**
-     *  this.id = this.routes.snapshot.params['id']
-    if(this.id)
-    {
-      this.employeeLists$= this.employee.getData(this.id);
-    }
-     * 
-     * 
-     * 
-     * 
-     */  
+
+      this.id = this.routes.snapshot.params['id'];  //get Id
+      this.employee$ = this.employeeService.getEmployeeById(Number(this.id)); //get data of particular Id
   }
+
+  
 
   create(employee: Employee)
-  {
-   
-    this.employeeService.addEmployee(employee).subscribe(data=>
-      {
-        if(data)
+  {   
+    //if id exists then execute editEmployee else addEmployee()
+    if(this.id)
+    {
+      this.employeeService.editEmployee(employee,this.id).subscribe()
+    }
+    else
+    {
+      this.employeeService.addEmployee(employee).subscribe(data=>
         {
-          alert('record inserted');
-        }
-      });
-  }
+          if(data)
+          {
+            alert('record inserted');
 
+          }
+        });      
+     }
+  }
 }

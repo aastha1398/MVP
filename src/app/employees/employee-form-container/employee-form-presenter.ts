@@ -7,11 +7,14 @@ import {FormBuilder,Validators, FormGroup} from '@angular/forms';
 export class EmployeeFormPresenterService {
 
   profileForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { }
   
+  /**
+   * create() method is used to create form
+   */
   create()
   {
-     return this.profileForm = this.fb.group
+     return this.profileForm = this.formBuilder.group
      ({
       employeeName: [''],
       employeeEmail: [''],
