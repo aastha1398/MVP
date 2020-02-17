@@ -16,11 +16,11 @@ export class EmployeeFormPresenterService {
   {
      return this.profileForm = this.formBuilder.group
      ({
-      employeeName: [''],
-      employeeEmail: [''],
-      employeeContact: [''],
-      employeeDepartment:[''],
-      employeeCity:['']
+      employeeName: ['',Validators.required],
+      employeeEmail: ['',[Validators.required,Validators.email]],
+      employeeContact: ['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
+      employeeDepartment:['',Validators.required],
+      employeeCity:['',Validators.required]
       });
   }
  

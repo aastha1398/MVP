@@ -23,7 +23,9 @@ export class EmployeeFormContainer implements OnInit {
   {
 
       this.id = this.routes.snapshot.params['id'];  //get Id
+      if(this.id){
       this.employee$ = this.employeeService.getEmployeeById(Number(this.id)); //get data of particular Id
+      }
   }
 
   
@@ -31,6 +33,7 @@ export class EmployeeFormContainer implements OnInit {
   create(employee: Employee)
   {   
     //if id exists then execute editEmployee else addEmployee()
+    debugger;
     if(this.id)
     {
       this.employeeService.editEmployee(employee,this.id).subscribe()
@@ -41,6 +44,7 @@ export class EmployeeFormContainer implements OnInit {
         {
           if(data)
           {
+            debugger
             alert('record inserted');
 
           }

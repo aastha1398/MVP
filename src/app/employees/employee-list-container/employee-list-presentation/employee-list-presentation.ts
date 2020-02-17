@@ -12,32 +12,43 @@ import { EmployeeListPresenterService } from '../employee-list-presenter';
 })
 export class EmployeeListPresentation implements OnInit {
 
-  constructor() { }
 
   @Input() employeeData$:Observable<Employee[]>;
-  @Output() deleteEvent = new EventEmitter<number>(); //Output event for delete function
-  @Output() editEvent = new EventEmitter<number>();   //Output event for edit function
+  @Output() delete = new EventEmitter<number>(); //Output event for delete function
+  @Output() edit = new EventEmitter<number>();   //Output event for edit function
+  @Output() search = new EventEmitter<string>(); //output event for search function
 
+  
   ngOnInit(){}
-
+  constructor() { }
 
   /**
    * 
-   * @param id 
+   * @param id will delete a record of particular Id
    */
-  delete(id:number)
+  deleteEmployee(id:number)
   {
-    this.deleteEvent.emit(id);
+    this.delete.emit(id);
   }
 
   /**
    * 
-   * @param id 
+   * @param id will edit a record of given Id
    */
-    edit(id: number)
+  editEmployee(id: number)
   {
-    this.editEvent.emit(id);
+    this.edit.emit(id);
   }
 
 
+  /**
+   * 
+   * @param searchText will
+   * 
+   */
+  searchEmployee(searchText: string)
+  {
+    this.search.emit(searchText);
+  }
+   
 }

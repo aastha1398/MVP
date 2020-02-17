@@ -12,7 +12,7 @@ import { Employee } from '../../employees.model';
 export class EmployeeFormPresentation implements OnInit {
 
   profileForm: FormGroup; 
-
+  employeeObj:Employee;
   @Input() employees: Employee;
   @Output() createEvent = new EventEmitter<FormGroup>();
 
@@ -20,12 +20,11 @@ export class EmployeeFormPresentation implements OnInit {
  
   ngOnInit() : void
   {
-
     if(this.employees)
        {
          debugger;
-           this.profileForm= this.employeePresenter.create()
-           alert("Employee Already Exists")
+          this.profileForm= this.employeePresenter.create()
+          alert("Employee Already Exists")
           console.log(this.employees)           
        }
       else
@@ -50,7 +49,7 @@ export class EmployeeFormPresentation implements OnInit {
   
   OnSubmit()
   {
-    this.createEvent.emit(this.profileForm.value);
-    console.log(this.createEvent);
+     this.createEvent.emit(this.profileForm.value);
+    console.log(this.profileForm.value);
   }
 }

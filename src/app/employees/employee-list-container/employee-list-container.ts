@@ -11,24 +11,33 @@ import { Employee } from '../employees.model';
 export class EmployeeListContainer implements OnInit {
 
   empData$ : Observable<Employee[]>;  
-
+  
   constructor(private employee:EmployeeService) { }  
 
   ngOnInit()
   {
+    //Fetch Data from db.json.
      this.empData$ = this.employee.getEmployees();
   }
 
-  onDelete(id: number)
+  deleteEmployee(id: number) 
   {
+    //Delete Employee of particular Id.
     this.employee.deleteEmployee(id).subscribe();
     this.empData$ = this.employee.getEmployees();
   }
 
-  onEdit(id: number)
+  editEmployee(id: number)
   {
+     // Edit employee of particular Id.
       this.employee.getEmployeeById(id);
   }
-   
+
+  searchEmployee(searchText)
+  {
+    //Search employee.
+    this.empData$ = this.employee.searchEmployee(searchText);
+  }
+
  
 }

@@ -14,8 +14,7 @@ export class EmployeeService {
   constructor(private http: HttpClient, private route: Router) 
   {
    this.apiUrl=environment.baseUrl;     //apiUrl is assingned to baseUrl from environment
-  }
-  
+  }  
 
   /**
    * getEmployees() is used to get all data from db.json.
@@ -35,6 +34,7 @@ export class EmployeeService {
   deleteEmployee(id: number) : Observable<Employee>
   {
     return this.http.delete<Employee>(`${this.apiUrl}/${id}`);
+
   }
 
 
@@ -45,6 +45,9 @@ export class EmployeeService {
    */
   addEmployee(employee:Employee) : Observable<Employee>
   {
+    console.log(employee);
+    
+    debugger
     return this.http.post<Employee>(`${this.apiUrl}`,employee);                
   }
 
@@ -53,9 +56,7 @@ export class EmployeeService {
    * @param id 
    * Fetch data of particular Id:
    * 
-   * 
    */
-
   getEmployeeById(id:number) : Observable<Employee>
   {
       return this.http.get<Employee>(`${this.apiUrl}${id}`);
@@ -71,5 +72,16 @@ export class EmployeeService {
   {
     return this.http.put<Employee>(`${this.apiUrl}`+`/${id}`,employee)
   }
+
+
+  /**
+   * 
+   * @param employee used for searching at server side
+   */
+  searchEmployee(employee : Employee) : Observable<Employee[]>
+  {
+    return this.http.get<Employee[]>(`${this.apiUrl}?q=${employee}`);
+  }
+  
 
 }
