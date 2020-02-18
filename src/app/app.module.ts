@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CoreModule } from './core/core.module';
-import { EmployeesModule } from './employees/employees.module';
+
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { EmployeesModule } from './employees/employees.module';
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
-    EmployeesModule,    
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

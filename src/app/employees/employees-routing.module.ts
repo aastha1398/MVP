@@ -7,6 +7,7 @@ import { EmployeeFormContainer } from './employee-form-container/employee-form-c
 
 
 const routes: Routes = [
+ 
   {
     path:'employee',
     component: EmployeeListContainer
@@ -18,7 +19,7 @@ const routes: Routes = [
   {
     path:'add',
     component: EmployeeFormContainer
-  }
+  }    
 ];
 
 @NgModule({

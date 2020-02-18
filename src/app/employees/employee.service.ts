@@ -84,4 +84,9 @@ export class EmployeeService {
   }
   
 
+  // sortEmployee(orderString :string): Observable<Employee[]>
+  // {
+  //   return this.http.get<Employee[]>(``)
+  // }
+
 }
