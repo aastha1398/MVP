@@ -4,13 +4,21 @@
     <label> 
     Employee Name:
     </label>&nbsp;&nbsp;
-     <input  type="text"  formControlName="employeeName">
-    <br><br>
+     <input  type="text"  formControlName="employeeNames" [ngClass]="{ 'is-invalid': submitted && form.employeeNames.errors }">
+     <div *ngIf="submitted && form.employeeNames.errors" class="invalid-feedback">
+    <div *ngIf="form.employeeNames.errors.required">Employee Name is required</div>
+    </div>
+ <br>
+ <br>
     
     <label>
       Employee Email:
     </label>&nbsp;&nbsp;
-    <input  type="email" formControlName="employeeEmail">
+    <input  type="email" formControlName="employeeEmail" [ngClass]="{ 'is-invalid': submitted && form.employeeEmail.errors }">
+    <div *ngIf="submitted && form.employeeEmail.errors" class="invalid-feedback">
+      <div *ngIf="form.employeeEmail.errors.required">Email is required</div>
+      <div *ngIf="form.employeeEmail.errors.email">Email must be a valid email address</div>
+  </div>
     <br>
     <br>
 
@@ -18,14 +26,21 @@
     <label>
       Contact Number:
     </label>&nbsp;&nbsp;
-     <input  type="text" formControlName="employeeContact" >
+     <input  type="text" formControlName="employeeContact" [ngClass]="{'is-invalid': submitted && form.employeeContact.errors}">
+     <div *ngIf="submitted && form.employeeContact.errors" class="invalid-feedback">
+      <div *ngIf="form.employeeContact.errors.required">Contact Number is required</div>
+  </div>
+<br>
     <br>
     <br>
 
     <label>
-      ssDepartment: 
+      Department: 
     </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" formControlName="employeeDepartment" >
+    <input type="text" formControlName="employeeDepartment" [ngClass]="{'is-invalid': submitted && form.employeeDepartment.errors}">
+    <div *ngIf="submitted && form.employeeDepartment.errors" class="invalid-feedback">
+      <div *ngIf="form.employeeDepartment.errors.required">Department  is required</div>
+  </div>
      &nbsp;&nbsp;
     <br>
     <br>
@@ -37,7 +52,7 @@
     <br>
     <br>
    
-    <button type="submit" ng-disabled="profileForm.invalid">Submit</button>&nbsp;
+    <button type="submit" [disabled]="profileForm.invalid">Submit</button>&nbsp;
     <button type="reset" >Clear</button>
 </form>
 <p>

@@ -1,31 +1,31 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { EmployeeFormPresenterService } from '../employee-form-presenter';
 import { FormGroup } from '@angular/forms';
 import { Employee } from '../../employees.model';
 
 @Component({
   selector: 'app-employee-form-presentation-ui',
-  templateUrl: './employee-form-presentation.html',
-  styleUrls: ['./employee-form-presentation.css'],
+  templateUrl: './employee-form-presentation.html',  
   providers: [EmployeeFormPresenterService]
 })
 export class EmployeeFormPresentation implements OnInit {
 
   profileForm: FormGroup; 
-  employeeObj:Employee;
+  submitted= false;
   @Input() employees: Employee;
-  @Output() createEvent = new EventEmitter<FormGroup>();
+  @Output() create: EventEmitter<FormGroup>;
 
-  constructor(private employeePresenter: EmployeeFormPresenterService) { }
+  constructor(private employeePresenter: EmployeeFormPresenterService)
+  {
+    this.create = new EventEmitter<FormGroup>();
+  }
  
   ngOnInit() : void
   {
     if(this.employees)
        {
-         debugger;
-          this.profileForm= this.employeePresenter.create()
-          alert("Employee Already Exists")
-          console.log(this.employees)           
+         alert("Employee Already Exists")
+                 
        }
       else
       {
@@ -35,6 +35,7 @@ export class EmployeeFormPresentation implements OnInit {
 
  @Input() set employee(Value: Employee)
  {
+   //if value exists then will go for patchvalue 
    if(Value)
    {
     this.employees = Value;
@@ -47,9 +48,15 @@ export class EmployeeFormPresentation implements OnInit {
    return this.employees;
  }
   
+ get form()
+ {
+   return this.profileForm.controls;
+ }
+
   OnSubmit()
   {
-     this.createEvent.emit(this.profileForm.value);
-    console.log(this.profileForm.value);
+     this.submitted = true;
+     this.create.emit(this.profileForm.value);
+     
   }
 }

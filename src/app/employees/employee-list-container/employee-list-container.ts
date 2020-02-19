@@ -6,11 +6,11 @@ import { Employee } from '../employees.model';
 @Component({
   selector: 'app-employee-list-container',
   templateUrl: './employee-list-container.html',
-  styleUrls: ['./employee-list-container.css']
+ 
 })
 export class EmployeeListContainer implements OnInit {
 
-  empData$ : Observable<Employee[]>;  
+  empData$ : Observable<Employee[]>;
   
   constructor(private employee:EmployeeService) { }  
 
@@ -20,20 +20,24 @@ export class EmployeeListContainer implements OnInit {
      this.empData$ = this.employee.getEmployees();
   }
 
-  deleteEmployee(id: number) 
+  public deleteEmployee(id: number): void
   {
     //Delete Employee of particular Id.
-    this.employee.deleteEmployee(id).subscribe();
-    this.empData$ = this.employee.getEmployees();
+    this.employee.deleteEmployee(id).subscribe(
+      data=>{
+          alert("Record Deleted");
+      }
+    );
+   
   }
 
-  editEmployee(id: number)
+  public editEmployee(id: number): void
   {
      // Edit employee of particular Id.
       this.employee.getEmployeeById(id);
   }
 
-  searchEmployee(searchText)
+  public searchEmployee(searchText): void
   {
     //Search employee.
     this.empData$ = this.employee.searchEmployee(searchText);

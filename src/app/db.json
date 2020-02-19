@@ -7,14 +7,6 @@
       "employeeEmail": "aasthayadav@gmail.com",
       "employeeContact": "5683232632",
       "employeeCity": "Navsari"
-    },
-    {
-      "employeeName": "Shiv Desai",
-      "employeeEmail": "shiv@gmail.com",
-      "employeeContact": "7410258963",
-      "employeeDepartment": "Angular",
-      "employeeCity": "Navsari",
-      "id": 2
     }
   ]
 }

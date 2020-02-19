@@ -19,7 +19,7 @@ export class EmployeeService {
   /**
    * getEmployees() is used to get all data from db.json.
    */
-  getEmployees() : Observable<Employee[]>
+  public getEmployees() : Observable<Employee[]>
   {
     return this.http.get<Employee[]>(`${this.apiUrl}`);
   }
@@ -31,7 +31,7 @@ export class EmployeeService {
    * deleteEmployee() is used to delete particular record  of given Id.
    * 
    */
-  deleteEmployee(id: number) : Observable<Employee>
+  public deleteEmployee(id: number) : Observable<Employee>
   {
     return this.http.delete<Employee>(`${this.apiUrl}/${id}`);
 
@@ -43,12 +43,10 @@ export class EmployeeService {
    * @param employee is Model with class name Employee.
    * addEmployeee() method is used to add Employee
    */
-  addEmployee(employee:Employee) : Observable<Employee>
+  public addEmployee(employee:Employee) : Observable<Employee>
   {
-    console.log(employee);
-    
-    debugger
-    return this.http.post<Employee>(`${this.apiUrl}`,employee);                
+    console.log(employee);    
+     return this.http.post<Employee>(`${this.apiUrl}`,employee);                
   }
 
   /**
@@ -57,7 +55,7 @@ export class EmployeeService {
    * Fetch data of particular Id:
    * 
    */
-  getEmployeeById(id:number) : Observable<Employee>
+  public getEmployeeById(id:number) : Observable<Employee>
   {
       return this.http.get<Employee>(`${this.apiUrl}${id}`);
   }
@@ -68,9 +66,9 @@ export class EmployeeService {
    * @param id 
    * Edit data of given employee
    */
-  editEmployee(employee:Employee,id: number) :Observable<Employee>
+  public editEmployee(employee:Employee,id: number) :Observable<Employee>
   {
-    return this.http.put<Employee>(`${this.apiUrl}`+`/${id}`,employee)
+    return this.http.put<Employee>(`${this.apiUrl}/${id}`,employee)
   }
 
 
@@ -78,7 +76,7 @@ export class EmployeeService {
    * 
    * @param employee used for searching at server side
    */
-  searchEmployee(employee : Employee) : Observable<Employee[]>
+  public searchEmployee(employee : Employee) : Observable<Employee[]>
   {
     return this.http.get<Employee[]>(`${this.apiUrl}?q=${employee}`);
   }

@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EmployeeService } from '../employee.service';
 import { Observable } from 'rxjs';
+
+import { EmployeeService } from '../employee.service';
 import { Employee } from '../employees.model';
-import { FormGroup } from '@angular/forms';
-import { EmployeeFormPresenterService } from './employee-form-presenter';
 
 @Component({
   selector: 'app-employee-form-container-ui',
   templateUrl: './employee-form-container.html',
-  styleUrls: ['./employee-form-container.css'],
   
 })
 export class EmployeeFormContainer implements OnInit {
@@ -21,7 +19,6 @@ export class EmployeeFormContainer implements OnInit {
  
   ngOnInit()
   {
-
       this.id = this.routes.snapshot.params['id'];  //get Id
       if(this.id){
       this.employee$ = this.employeeService.getEmployeeById(Number(this.id)); //get data of particular Id
@@ -33,7 +30,6 @@ export class EmployeeFormContainer implements OnInit {
   create(employee: Employee)
   {   
     //if id exists then execute editEmployee else addEmployee()
-    debugger;
     if(this.id)
     {
       this.employeeService.editEmployee(employee,this.id).subscribe()
@@ -44,7 +40,6 @@ export class EmployeeFormContainer implements OnInit {
         {
           if(data)
           {
-            debugger
             alert('record inserted');
 
           }
