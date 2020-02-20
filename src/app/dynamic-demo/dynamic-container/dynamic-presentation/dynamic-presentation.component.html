@@ -1,0 +1,30 @@
+<p>dynamic-presentation works!</p>
+<div style="text-align:center">
+    <h1>
+        Welcome to FactoryResolver!!
+    </h1>
+
+    <button (click)="createComponent()">Create success alert</button>
+    <ng-container #dynamic></ng-container>
+</div>
+
+<div style="text-align:center">
+    <h1>
+        Welcome to  Cdk-Portal!!
+    </h1>
+
+    <button (click)="create()">Create success alert</button>
+    <button (click)="destroy()">Create danger alert</button>
+    <ng-template [cdkPortalOutlet]="selectedPortal"></ng-template>
+    
+</div>
+
+
+<div style="text-align:center">
+    <h1>
+        Welcome to Overlay!!
+    </h1>
+
+    <button (click)="createOverlay()">Create success alert</button>  
+    
+</div>
