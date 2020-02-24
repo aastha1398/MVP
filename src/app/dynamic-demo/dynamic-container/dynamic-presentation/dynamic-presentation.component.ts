@@ -16,6 +16,7 @@ export class DynamicPresentationComponent implements OnInit {
   selectedPortal: Portal<any>;
   componentPortal: ComponentPortal<DynamicComponentComponent>
   templatePortal: TemplatePortal<any>
+  numberToWord
 
   private componentRef: any;
   constructor(private resolver: ComponentFactoryResolver,public overlay: Overlay,public viewContainerRef: ViewContainerRef) { }

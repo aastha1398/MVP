@@ -7,16 +7,19 @@ import { DynamicPresentationComponent } from './dynamic-container/dynamic-presen
 import { DynamicComponentComponent } from '../dynamic-component/dynamic-component.component';
 import { PortalModule } from '@angular/cdk/portal';
 import {OverlayModule} from '@angular/cdk/overlay'
+import { FormsModule } from '@angular/forms';
+import { EmojiPipe } from '../emoji.pipe';
 
 
 
 @NgModule({
-  declarations: [DynamicContainerComponent, DynamicPresentationComponent, DynamicComponentComponent],
+  declarations: [DynamicContainerComponent, DynamicPresentationComponent, DynamicComponentComponent,EmojiPipe],
   imports: [
     CommonModule,
     DynamicDemoRoutingModule,
     PortalModule,
-    OverlayModule
+    OverlayModule,
+    FormsModule
   
    
   ],

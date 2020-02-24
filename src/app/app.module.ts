@@ -5,13 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 
+import {FormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]
